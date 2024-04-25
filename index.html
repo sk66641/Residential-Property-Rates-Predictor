@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-size: 40px;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+    }
+
+    .box {
+        background-color: palevioletred;
+        border-radius: 50px;
+        padding: 0px 10px 10px 10px;
+        box-shadow: 0px 0px 10px 10px #8f8f8f;
+
+    }
+
+    #submit {
+        background-color: green;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    #submit:hover {
+        background-color: darkgreen;
+    }
+
+    #clear {
+        border-radius: 10px;
+        background-color: red;
+        cursor: pointer;
+    }
+
+    #clear:hover {
+        background-color: darkred;
+
+    }
+
+    .button {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .output {
+        display: flex;
+        color: yellow;
+        align-items: center;
+        justify-self: center;
+    }
+
+    @media only screen and (max-width: 651px) {
+        * {
+            font-size: 20px;
+        }
+
+        .button {
+            margin-top: 30px;
+        }
+    }
+
+    @media only screen and (max-width: 352px) {
+        * {
+            font-size: 10px;
+        }
+
+        .button {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+    }
+</style>
+
+<body>
+    <div class="box">
+        <h1 style="color: slateblue; text-align: center;">Mobile Phone Price Predictor</h1>
+        <div>
+            <label>Brand:</label>
+            <select style="border-radius: 10px;" id="brand">
+                <option value="1">Redmi</option>
+                <option value="2">Poco</option>
+                <option value="3">Realme</option>
+                <option value="4">OnePlus</option>
+                <option value="5">Vivo</option>
+                <option value="6">Samsung</option>
+                <option value="7">Apple</option>
+            </select>
+        </div>
+        <div>
+            <label>RAM:</label>
+            <select style="border-radius: 10px;" id="ram">
+                <option value="2">2 GB</option>
+                <option value="3">3 GB</option>
+                <option value="4">4 GB</option>
+                <option value="6">6 GB</option>
+                <option value="8">8 GB</option>
+                <option value="12">12 GB</option>
+            </select>
+        </div>
+        <div>
+            <label>Internal Storage:</label>
+            <select style="border-radius: 10px;" id="internal_storage">
+                <option value="16">16 GB</option>
+                <option value="32">32 GB</option>
+                <option value="64">64 GB</option>
+                <option value="128">128 GB</option>
+                <option value="512">512 GB</option>
+            </select>
+        </div>
+        <div>
+            <label>Battery Capacity:</label>
+            <select style="border-radius: 10px;" id="battery_capacity">
+                <option value="3500">3000 - 3999 mAh</option>
+                <option value="4500">4000 - 4999 mAh</option>
+                <option value="5500">5000 - 5999 mAh</option>
+                <option value="6500">6000 - 6999 mAh</option>
+            </select>
+            <div>
+                <label>Screen Size:</label>
+                <select style="border-radius: 10px;" id="screen_size">
+                    <option value="32">3 - 3.4 inch</option>
+                    <option value="37">3.5 - 3.9 inch</option>
+                    <option value="42">4 - 4.4 inch</option>
+                    <option value="47">4.5 - 4.9 inch</option>
+                    <option value="52">5 - 5.4 inch</option>
+                    <option value="57">5.5 - 5.9 inch</option>
+                    <option value="62">6 - 6.4 inch</option>
+                    <option value="67">6.5 - 6.9 inch</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label>Front Camera:</label>
+            <select style="border-radius: 10px;" id="front_camera">
+                <option value="6">5 - 7 MP</option>
+                <option value="10">8 - 11.9 MP</option>
+                <option value="14">12 - 15.9 MP</option>
+                <option value="19">16 - 20.9 MP</option>
+                <option value="26">21 - 31.9 MP</option>
+                <option value="41">32 - 50 MP</option>
+
+            </select>
+        </div>
+
+        <div>
+            <label>Back Camera:</label>
+            <select style="border-radius: 10px;" id="back_camera">
+                <option value="6">5 - 7 MP</option>
+                <option value="10">8 - 11.9 MP</option>
+                <option value="14">12 - 15.9 MP</option>
+                <option value="19">16 - 20.9 MP</option>
+                <option value="26">21 - 31.9 MP</option>
+                <option value="40">32 - 47.9 MP</option>
+                <option value="56">48 - 63.9 MP</option>
+                <option value="86">64 - 108 MP</option>
+                <option value="155">109 - 200 MP</option>
+            </select>
+        </div>
+        <div class="button">
+            <button id="submit">Submit</button>
+            <button id="clear">Reset</button>
+        </div>
+        <div id="output"></div>
+        <script>
+            document.getElementById("submit").addEventListener("click", () => {
+                let brand = Number(document.getElementById("brand").value);
+                let ram = Number(document.getElementById("ram").value);
+                let internal_storage = Number(document.getElementById("internal_storage").value);
+                let battery_capacity = Number(document.getElementById("battery_capacity").value);
+                let screen_size = Number(document.getElementById("screen_size").value);
+                let front_camera = Number(document.getElementById("front_camera").value);
+                let back_camera = Number(document.getElementById("back_camera").value);
+                let output = parseInt(brand * 20 + ram + internal_storage + back_camera + screen_size + battery_capacity + front_camera);
+                // output = parseInt((output / 4000)+1);
+                console.log(typeof output);
+                document.getElementById("output").innerHTML = `Predicted Price: $${output}`;
+                document.getElementById("output").style.color = `yellow`;
+                document.getElementById("output").style.textAlign = `center`;
+
+            })
+            document.getElementById("clear").addEventListener("click", (event) => {
+                window.location.reload();
+            })
+
+
+        </script>
+    </div>
+</body>
+
+</html>
