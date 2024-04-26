@@ -139,10 +139,18 @@
                 document.getElementById("output").innerText = "Please select locality!"
                 document.getElementById("output").style.color = "red"
             }
-            else if (year == "") {
 
-                document.getElementById("output").innerText = "Please enter year!";
-                document.getElementById("output").style.color = "red"
+
+            else if (year == "" || Number(year) < 2014) {
+                if (year == "") {
+
+                    document.getElementById("output").innerText = "Please enter year!";
+                    document.getElementById("output").style.color = "red";
+                }
+                else {
+                    document.getElementById("output").innerText = "Please enter year greater than 2014!";
+                    document.getElementById("output").style.color = "red"
+                }
             }
             else {
                 document.getElementById("output").style.color = "brown"
