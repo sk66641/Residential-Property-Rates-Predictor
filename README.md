@@ -1,5 +1,5 @@
-## Residential Property Rates Predictor
+# Residential Property Rates Predictor
 
-# Link:
+## Link:
 
 https://sk66641.github.io/Residential-Property-Rates-Predictor/
