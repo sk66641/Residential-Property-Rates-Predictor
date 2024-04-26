@@ -18,17 +18,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: skyblue;
+        background-color: rgb(247, 176, 84);
     }
 
     h1 {
         color: slateblue;
         text-align: center;
+        background-color: rgb(0, 0, 0);
     }
 
+
     .box {
-        background-color: aqua;
-        border-radius: 50px;
+        background-color: rgb(84, 247, 138);
+        /* border-radius: 50px; */
         padding: 0px 10px 10px 10px;
         box-shadow: 0px 0px 10px 10px #8f8f8f;
     }
@@ -103,18 +105,17 @@
 
 <body>
     <div class="box">
-        <h1>Residential Property Rates Predictor</h1>
+        <div class="heading">
+            <h1>Average Birth Rate Predictor per year</h1>
+        </div>
+
         <div>
             <label>Select Locality:</label>
             <select id="locality">
                 <option style="background-color: lightslategray; color: white;" value="0">Select</option>
-                <option value="1">Dwarka (New Delhi, India)</option>
-                <option value="2">Borewell Road (Bangalore, India)</option>
-                <option value="3">East Kolkata Township, (Kolkata, India)</option>
-                <option value="4">Mandaveli (Chennai, India)</option>
-                <option value="5">Hitech City Road (Hyderabad, India)</option>
-                <option value="6">Bandra West (Mumbai, India)</option>
-                <option value="7">Old Delhi Gurgaon Road (Gurgaon, India)</option>
+                <option value="1">Mumbai</option>
+                <option value="2">Delhi</option>
+                <option value="3">India</option>
 
             </select>
         </div>
@@ -139,46 +140,33 @@
                 document.getElementById("output").innerText = "Please select locality!"
                 document.getElementById("output").style.color = "red"
             }
-            else if (year == "") {
+            else if (year == "" || Number(year) < 1900) {
+                if (year == "") {
 
-                document.getElementById("output").innerText = "Please enter year!";
-                document.getElementById("output").style.color = "red"
+                    document.getElementById("output").innerText = "Please enter year!";
+                    document.getElementById("output").style.color = "red";
+                }
+                else {
+                    document.getElementById("output").innerText = "Please enter year greater than 1900!";
+                    document.getElementById("output").style.color = "red"
+
+                }
             }
             else {
                 document.getElementById("output").style.color = "brown"
                 if (locality == 1) {
-                    let output = Math.round(188.2 * year - 370896);
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
+                    let output = Math.round(-4564 * year + 9.355e+006);
+                    document.getElementById("output").innerText = `Predicted Average Birth Rate per year: ${output}`;
                 }
                 else if (locality == 2) {
-                    let output = Math.round(597.3 * year - 1.199e+006);
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
+                    let output = Math.round(15639 * year - 3.133e+007);
+                    document.getElementById("output").innerText = `Predicted Average Birth Rate per year: ${output}`;
 
                 }
                 else if (locality == 3) {
 
-                    let output = Math.round(1132 * year - 2.276e+006);
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
-                }
-                else if (locality == 4) {
-
-                    let output = Math.round(104.4 * year - 195052);
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
-                }
-                else if (locality == 5) {
-
-                    let output = Math.round(408.0 * year - 814575);
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
-                }
-                else if (locality == 6) {
-
-                    let output = Math.round(1196 * year - 2.374e+006);
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
-                }
-                else if (locality == 7) {
-                    let output = Math.round(1904 * year - 3.837e+006);
-
-                    document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
+                    let output = Math.round(0.7771 * year - 1548);
+                    document.getElementById("output").innerText = `Predicted Average Birth Rate per year: ${output} Million`;
                 }
 
             }
