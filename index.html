@@ -229,7 +229,10 @@
                     if (locality == 1) {
                         let output = Math.round(188.2 * year - 370896);
 
-                        // got these equations using linear regression calculator "https://www.bing.com/ck/a?!&&p=bbbb87956c1a70fbJmltdHM9MTcxNDA4OTYwMCZpZ3VpZD0xM2JlODk0Yi1hYTI5LTZmOWQtMDI2Yy05ZDZiYWJkYjZlMTImaW5zaWQ9NTIzNw&ptn=3&ver=2&hsh=3&fclid=13be894b-aa29-6f9d-026c-9d6babdb6e12&psq=linear+regression+results+calculataor&u=a1aHR0cHM6Ly93d3cuZ3JhcGhwYWQuY29tL3F1aWNrY2FsY3MvbGluZWFyMS8&ntb=1"
+                        // taken data of land prices form this site: https://www.magicbricks.com/Property-Rates-Trends
+
+                        // got these equations using linear regression calculator: "https://www.bing.com/ck/a?!&&p=bbbb87956c1a70fbJmltdHM9MTcxNDA4OTYwMCZpZ3VpZD0xM2JlODk0Yi1hYTI5LTZmOWQtMDI2Yy05ZDZiYWJkYjZlMTImaW5zaWQ9NTIzNw&ptn=3&ver=2&hsh=3&fclid=13be894b-aa29-6f9d-026c-9d6babdb6e12&psq=linear+regression+results+calculataor&u=a1aHR0cHM6Ly93d3cuZ3JhcGhwYWQuY29tL3F1aWNrY2FsY3MvbGluZWFyMS8&ntb=1"
+
 
                         document.getElementById("output").innerText = `Predicted Average Price: ${output} Rs/Sq-ft`;
                     }
